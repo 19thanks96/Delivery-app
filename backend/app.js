@@ -11,20 +11,9 @@ app.use(cors())
 
 app.use(express.static('uploads'))
 
-createConnroller(app)
-
-async function createDirectory() {
-    try {
-        await fs.mkdir('uploads')
-        console.log('uploads directory created')
-    } catch {
-        console.log('uploads directory exist')
-    }
-}
-
 async function run() {
     try {
-        await createDirectory()
+        createConnroller(app)
         await database.connectToShops()
         createInitialProduct()
         if (process.env.NODE_ENV !== 'test') {
