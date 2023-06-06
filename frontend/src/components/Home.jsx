@@ -36,7 +36,7 @@ const Home = ({basket, setBasket}) => {
     async function getGoodsMc() {
         let answer = await getGoods('Mc Donny')
         localStorage.removeItem('Goods');
-        basket.length = 0;
+        basket = [];
         outputGoods(answer)
         console.log(answer)
     }
@@ -44,7 +44,7 @@ const Home = ({basket, setBasket}) => {
     async function getGoodsCfk() {
         let answer = await getGoods('CFK')
         localStorage.removeItem('Goods');
-        basket.length = 0;
+        basket = [];
         outputGoods(answer)
     }
     return (
